@@ -5,10 +5,8 @@ import com.google.inject.Injector;
 
 public class CounterComponent {
 	
-	private Injector injector;
-	
 	public void activate(){
-		injector = Guice.createInjector(new Module());
+		Injector injector = Guice.createInjector(new Module());
         MyApp myApp = injector.getInstance(MyApp.class);
         myApp.init();
         myApp.start();
