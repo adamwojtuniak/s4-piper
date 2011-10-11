@@ -14,6 +14,18 @@
  * limitations under the License.
  */
 
+apply plugin: 'osgi'
+
+jar {
+    manifest { // the manifest of the default jar is of type OsgiManifest
+        name = 's4-comm'
+        instruction 'Bundle-Vendor', 'S4'
+        instruction 'Bundle-Version', '0.0.1'
+        instruction 'Bundle-Description', 's4-comm'
+        instruction 'Bundle-DocURL', 'http://s4.io/'
+    }
+}
+
 dependencies {
     compile project(":s4-base")
     compile libraries.json

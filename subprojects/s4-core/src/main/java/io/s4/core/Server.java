@@ -22,15 +22,17 @@ class Server {
 
     final private String moduleName;
     final private String logLevel;
+    final private FrameworkLauncher fwkLauncher;
 
     /**
      * 
      */
     @Inject
     public Server(@Named("comm.module") String moduleName,
-            @Named("s4.logger_level") String logLevel) {
+            @Named("s4.logger_level") String logLevel, FrameworkLauncher fwkLauncher) {
         this.moduleName = moduleName;
         this.logLevel = logLevel;
+        this.fwkLauncher = fwkLauncher;
     }
 
     private static final Logger logger = LoggerFactory.getLogger(Server.class);
@@ -54,6 +56,8 @@ class Server {
 
         /* After some indirection we get the injector. */
         injector = Guice.createInjector(module);
+        
+        fwkLauncher.launch();
 
         // HERE WE SHOULD LOOP TO CHECK IF WE NEED TO LOAD OR UNLOAD APPS.
 
