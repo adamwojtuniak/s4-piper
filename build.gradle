@@ -139,7 +139,7 @@ subprojects {
         manifest.attributes provider: 's4'
     }
     
-    task copyToLib(dependsOn: configurations.default.buildArtifacts, type: Copy) {
+    task createRepo(dependsOn: configurations.default.buildArtifacts, type: Copy) {
       into "../bundles"
       from configurations.default
       from configurations.default.allArtifactFiles
