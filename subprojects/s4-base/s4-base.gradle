@@ -19,8 +19,8 @@ apply plugin: 'osgi'
 jar {
     manifest { // the manifest of the default jar is of type OsgiManifest
         name = 's4-base'
+        version = '0.0.1'
         instruction 'Bundle-Vendor', 'S4'
-        instruction 'Bundle-Version', '0.0.1'
         instruction 'Bundle-Description', 's4-base'
         instruction 'Bundle-DocURL', 'http://s4.io/'
     }
